@@ -10,6 +10,15 @@ public class Main {
                 .expirationDate(LocalDate.of(2026, 4, 1))
                 .build();
 
-        
+
+        Customer customerOmar = new Customer("Omar el Azouny", 5000);
+
+        Order order = new Order(tv, 1);
+        customerOmar.cart.addOrder(order);
+
+        order = new Order(cheese, 3);
+        customerOmar.cart.addOrder(order);
+
+        customerOmar.checkOut();
     }
 }
