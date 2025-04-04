@@ -47,7 +47,7 @@ public class Product {
         return weight;
     }
 
-    public class Builder {
+    public static class Builder {
 
         String name;
         double price;
