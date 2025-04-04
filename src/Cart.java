@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Cart {
@@ -105,5 +106,23 @@ public class Cart {
 
     public double getTotalFees() {
         return totalFees;
+    }
+
+    public String getFormattedOrderSubtotal()
+    {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(orderSubtotal);
+    }
+
+    public String getFormattedShippingFees()
+    {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(shippingFees);
+    }
+
+    public String getFormattedTotalFees()
+    {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(totalFees);
     }
 }

@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Customer {
     String name;
     Cart cart;
@@ -17,19 +19,25 @@ public class Customer {
             throw new InsufficientBalanceException("Balance is insufficient");
         }
 
-        System.out.println("Subtotal: " + cart.getOrderSubtotal());
+        System.out.println("Subtotal: " + cart.getFormattedOrderSubtotal());
 
-        System.out.println("Shipping fees " + cart.getShippingFees());
+        System.out.println("Shipping fees " + cart.getFormattedShippingFees());
 
-        System.out.println("Total fees: " + cart.getTotalFees());
+        System.out.println("Total fees: " + cart.getFormattedTotalFees());
 
         //update balance
         balance -= cart.getTotalFees();
-        System.out.println("Your current balance is: " + balance);
+        System.out.println("Your current balance is: " + getFormattedBalance());
     }
 
     public double getBalance() {
         return balance;
+    }
+
+    public String getFormattedBalance()
+    {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(balance);
     }
 
     public Cart getCart() {
